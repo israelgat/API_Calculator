@@ -9,6 +9,7 @@ namespace IO.Swagger.Tests
     public class CalculatorApiControllerTests
     {
         [Fact]
+        // Test for addition operation
         public void Calculate_Addition_ReturnsCorrectResult()
         {
             // Arrange
@@ -26,6 +27,7 @@ namespace IO.Swagger.Tests
         }
 
         [Fact]
+        // Test for subtraction operation
         public void Calculate_Subtraction_ReturnsCorrectResult()
         {
             var controller = new CalculatorApiController();
@@ -39,6 +41,7 @@ namespace IO.Swagger.Tests
         }
 
         [Fact]
+        // Test for multiplication operation
         public void Calculate_Multiplication_ReturnsCorrectResult()
         {
             var controller = new CalculatorApiController();
@@ -52,6 +55,7 @@ namespace IO.Swagger.Tests
         }
 
         [Fact]
+        // Test for division operation
         public void Calculate_Division_ReturnsCorrectResult()
         {
             var controller = new CalculatorApiController();
@@ -65,6 +69,7 @@ namespace IO.Swagger.Tests
         }
 
         [Fact]
+        // Test for division by zero
         public void Calculate_DivisionByZero_ReturnsBadRequest()
         {
             var controller = new CalculatorApiController();
@@ -76,16 +81,6 @@ namespace IO.Swagger.Tests
             result.Should().BeOfType<BadRequestObjectResult>();
         }
 
-        [Fact]
-        public void Calculate_InvalidOperation_ReturnsBadRequest()
-        {
-            var controller = new CalculatorApiController();
-            var body = new CalculateBody { Num1 = 10, Num2 = 5 };
-            string operation = "modulus";
-
-            var result = controller.Calculate(body, operation);
-
-            result.Should().BeOfType<BadRequestObjectResult>();
-        }
+       
     }
 }

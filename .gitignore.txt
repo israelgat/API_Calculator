@@ -1,9 +1,11 @@
-# Visual Studio cache/options directory
+# Visual Studio
 .vs/
+*.vsidx
 
 # Build results
 bin/
 obj/
+out/
 
 # User-specific files
 *.user
@@ -18,5 +20,6 @@ obj/
 # Test results
 TestResults/
 
-# Other
-*.vsidx
+# Docker artifacts (optional)
+*.pid
+*.seed

@@ -1,10 +1,10 @@
-﻿### 1. בקשה לקבלת טוקן ושמירתו כמשתנה
+﻿### 1. request login and save token to global variable
 POST http://localhost:50352/auth/login
 Content-Type: application/json
 
 > {% client.global.set("token", response.body.token); %}
 
-### 2. בקשה להריץ חישוב (הטוקן נכנס אוטומטית)
+### 2.use token in subsequent requests
 POST http://localhost:50352/calculate
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlRlc3RVc2VyIiwibmJmIjoxNzU5MDQ1NTQzLCJleHAiOjE3NTkwNDczNDMsImlhdCI6MTc1OTA0NTU0MywiaXNzIjoiTXlBcGkiLCJhdWQiOiJNeUFwaVVzZXJzIn0.G9xBC2TcIV0zIaRwcfIC96g5QFdrqo2RcB9P5vxROxA
 Operation: Add

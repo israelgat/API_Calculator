@@ -36,6 +36,7 @@ namespace IO.Swagger.Controllers
         /// <response code="400">Invalid parameters or operation</response>
         /// <response code="401">Unauthorized (invalid or missing JWT)</response>
         /// <response code="500">Internal server error</response>
+     
         [HttpPost]
         [Route("/calculate")]
         [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
@@ -65,10 +66,12 @@ namespace IO.Swagger.Controllers
                     break;
                 case "divide":
                     if (body.Num2 == 0)
+                        //check for division by zero
                         return BadRequest("Division by zero is not allowed.");
                     result = body.Num1 / body.Num2;
                     break;
                 default:
+                    // when the operation is not recognized
                     return BadRequest("Invalid operation. Supported: Add, Subtract, Multiply, Divide.");
             }
 

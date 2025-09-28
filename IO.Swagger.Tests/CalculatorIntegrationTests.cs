@@ -22,7 +22,7 @@ namespace IO.Swagger.Tests
         [Fact]
         public async Task Login_And_Addition_Works()
         {
-            // שלב 1: קבלת JWT
+            // step 1: Login to get JWT token
             var loginResponse = await _client.PostAsync("/auth/login", null);
             loginResponse.EnsureSuccessStatusCode();
 
@@ -32,7 +32,7 @@ namespace IO.Swagger.Tests
 
             Assert.False(string.IsNullOrEmpty(token));
 
-            // שלב 2: קריאה ל־/calculate עם Authorization Header
+            // step 2: Use the token to call /calculate endpoint
             _client.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", token);
 

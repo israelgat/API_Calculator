@@ -13,6 +13,8 @@ namespace IO.Swagger.Controllers
     public class AuthController : Controller
     {
         private readonly IConfiguration _config;
+
+        
         public AuthController(IConfiguration config)
         {
             _config = config;
@@ -20,6 +22,7 @@ namespace IO.Swagger.Controllers
         [HttpPost("login")]
         public IActionResult Index()
         {
+            
             var jwtSettings = _config.GetSection("Jwt");
             var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
 
