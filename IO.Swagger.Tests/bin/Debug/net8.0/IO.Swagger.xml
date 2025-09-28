@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IO.Swagger</name>
+    </assembly>
+    <members>
+        <member name="T:IO.Swagger.Attributes.ValidateModelStateAttribute">
+            <summary>
+            Model state validation attribute
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Attributes.ValidateModelStateAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Called before the action method is invoked
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:IO.Swagger.Controllers.CalculatorApiController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Controllers.CalculatorApiController.Calculate(IO.Swagger.Models.CalculateBody,System.String)">
+            <summary>
+            Perform an arithmetic operation on two numbers
+            </summary>
+            <remarks>Accepts two numbers in the request body and an operation type in the header, then returns the calculation result</remarks>
+            <param name="body"></param>
+            <param name="operation">The type of arithmetic operation (Add, Subtract, Multiply, Divide)</param>
+            <response code="200">Successful calculation result</response>
+            <response code="400">Invalid parameters or operation</response>
+            <response code="401">Unauthorized (invalid or missing JWT)</response>
+            <response code="500">Internal server error</response>
+        </member>
+        <member name="T:IO.Swagger.Filters.BasePathFilter">
+            <summary>
+            BasePath Document Filter sets BasePath property of Swagger and removes it from the individual URL paths
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Filters.BasePathFilter.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="basePath">BasePath to remove from Operations</param>
+        </member>
+        <member name="P:IO.Swagger.Filters.BasePathFilter.BasePath">
+            <summary>
+            Gets the BasePath of the Swagger Doc
+            </summary>
+            <returns>The BasePath of the Swagger Doc</returns>
+        </member>
+        <member name="M:IO.Swagger.Filters.BasePathFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Apply the filter
+            </summary>
+            <param name="swaggerDoc">OpenApiDocument</param>
+            <param name="context">FilterContext</param>
+        </member>
+        <member name="T:IO.Swagger.Filters.GeneratePathParamsValidationFilter">
+            <summary>
+            Path Parameter Validation Rules Filter
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Filters.GeneratePathParamsValidationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="operation">Operation</param>
+            <param name="context">OperationFilterContext</param>
+        </member>
+        <member name="T:IO.Swagger.Models.CalculateBody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Models.CalculateBody.Num1">
+            <summary>
+            Gets or Sets Num1
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Models.CalculateBody.Num2">
+            <summary>
+            Gets or Sets Num2
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Models.CalculateBody.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:IO.Swagger.Models.CalculateBody.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:IO.Swagger.Models.CalculateBody.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:IO.Swagger.Models.CalculateBody.Equals(IO.Swagger.Models.CalculateBody)">
+            <summary>
+            Returns true if CalculateBody instances are equal
+            </summary>
+            <param name="other">Instance of CalculateBody to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:IO.Swagger.Models.CalculateBody.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:IO.Swagger.Models.InlineResponse200">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Models.InlineResponse200.Result">
+            <summary>
+            Gets or Sets Result
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Models.InlineResponse200.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:IO.Swagger.Models.InlineResponse200.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:IO.Swagger.Models.InlineResponse200.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:IO.Swagger.Models.InlineResponse200.Equals(IO.Swagger.Models.InlineResponse200)">
+            <summary>
+            Returns true if InlineResponse200 instances are equal
+            </summary>
+            <param name="other">Instance of InlineResponse200 to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:IO.Swagger.Models.InlineResponse200.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+    </members>
+</doc>

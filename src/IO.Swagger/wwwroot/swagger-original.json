@@ -1,0 +1,111 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Calculator API",
+    "description" : "API for performing arithmetic operations on two numbers",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:5000"
+  } ],
+  "tags" : [ {
+    "name" : "Calculator",
+    "description" : "Endpoints for performing arithmetic operations"
+  } ],
+  "paths" : {
+    "/calculate" : {
+      "post" : {
+        "tags" : [ "Calculator" ],
+        "summary" : "Perform an arithmetic operation on two numbers",
+        "description" : "Accepts two numbers in the request body and an operation type in the header, then returns the calculation result",
+        "operationId" : "calculate",
+        "parameters" : [ {
+          "name" : "Operation",
+          "in" : "header",
+          "description" : "The type of arithmetic operation (Add, Subtract, Multiply, Divide)",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "Add", "Subtract", "Multiply", "Divide" ]
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/calculate_body"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Successful calculation result",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid parameters or operation"
+          },
+          "401" : {
+            "description" : "Unauthorized (invalid or missing JWT)"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "inline_response_200" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "number"
+          }
+        },
+        "example" : {
+          "result" : 0.8008281904610115
+        }
+      },
+      "calculate_body" : {
+        "required" : [ "num1", "num2" ],
+        "type" : "object",
+        "properties" : {
+          "num1" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : false,
+            "example" : 10
+          },
+          "num2" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : false,
+            "example" : 5
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  }
+}
